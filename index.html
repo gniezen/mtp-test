@@ -6,27 +6,57 @@
     <link rel="stylesheet" type="text/css" href="main.css">
   </head>
   <body>
-    <h2>Option 1: HTML input</h2>
+  <h1>Uploading DASH PDMs</h1>
+
+  <section>
+    <h2>Current implementation in Uploader</h2>
+
+
+    <h3>Windows: node-powershell</h3>
+
+    <ul>
+      <li>There are many varieties of PowerShell that can be installed</li>
+      <li>Separate code path to MacOS</li>
+      <li>Doesn't work in browser</li>
+    </ul>
+
+    <h3>MacOS: node-mtp</h3>
+
+    <ul>
+      <li>Our own JS wrapper around libmtp library written in C</li>
+      <li>libmtp is known to be buggy</li>
+      <li>Doesn't work in browser</li>
+    </ul>
+  </section>
+
+<section>
+    <h2>Looking forward to browser-based methods</h2>
+
+    <h3>Option 1: HTML input</h3>
     <input type="file"/>
 
     <ul>
       <li>User has to manually select the file each time</li>
       <li>Prone to error (user may select a cached file)</li>
+      <li>Doesn't work on MacOS</li>
     </ul>
 
-    <h2>Option 2: Native File System API</h2>
+    <h3>Option 2: Native File System API</h3>
     <button id="butDirectory" class="buttons">Open..</button>
 
     <ul>
-      <li>Broken on Windows (I filed a bug report, but it's apparently low priority)</li>
+      <li>Still hidden behind Chrome feature flag</li>
+      <li>Broken on Windows (I filed a bug report, but it was deemed to be low priority)</li>
       <li>Still requires user permission each session</li>
+      <li>Doesn't work on MacOS</li>
     </ul>
 
-    <h2>Option 3</h2>
+    <h3>Option 3: Implement MTP over WebUSB</h3>
     <button id="connect">Connect</button>
 
     <ul>
       <li>Requires a USB driver on Windows (which prevents Glooko from accessing device)</li>
     </ul>
+  </section>
   </body>
 </html>
