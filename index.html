@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>MTP over WebUSB</title>
+    <script src="mtp.js"></script>
+    <script src="nativefs.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+  <body>
+    <h2>Option 1: HTML input</h2>
+    <input type="file"/>
+
+    <ul>
+      <li>User has to manually select the file each time</li>
+      <li>Prone to error (user may select a cached file)</li>
+    </ul>
+
+    <h2>Option 2: Native File System API</h2>
+    <button id="butDirectory" class="buttons">Open..</button>
+
+    <ul>
+      <li>Broken on Windows (I filed a bug report, but it's apparently low priority)</li>
+      <li>Still requires user permission each session</li>
+    </ul>
+
+    <h2>Option 3</h2>
+    <button id="connect">Connect</button>
+
+    <ul>
+      <li>Requires a USB driver on Windows (which prevents Glooko from accessing device)</li>
+    </ul>
+  </body>
+</html>
